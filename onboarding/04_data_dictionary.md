@@ -226,6 +226,81 @@ The preferred wording is safer because it describes the search result without ov
 | `candidate_court_metrics_fy2025.csv` | Candidate-to-court OCA context | One row \= one candidate joined to court-level OCA metrics where available | Analyze court-seat backlog context, not individual candidate performance. |
 | `prototype_dossier.csv` | Mini-batch dossier prototype | One row \= one prototype-batch candidate | Test whether full candidate dossiers can be populated from public sources. |
 
+
+---
+
+# 4. `target_3_campaign_dossier.csv`
+
+## Purpose
+
+`target_3_campaign_dossier.csv` is the campaign-focused dossier file for the three priority Spartan Judicial races identified by Chris:
+
+- Joe Radler — 311th Family Court
+- Paul Sullivan — 113th Civil Court
+- Tami Pierce — 180th Criminal Court
+
+One row represents one target campaign candidate.
+
+This file is more polished and campaign-specific than the earlier `prototype_dossier.csv` because it focuses on the actual campaign types Spartan Judicial is supporting: two challengers and one incumbent across family, civil, and criminal court races.
+
+## Important caveat
+
+This file is still a prototype data product, not a final public-facing voter guide.
+
+OCA metrics are court-level context for the court seat, not individual candidate performance metrics. For challengers, the court metrics describe the seat they are running for, not their personal record. For the incumbent, the court metrics may be more directly relevant, but they should still be described as court-level context rather than proof of individual responsibility.
+
+TEC campaign finance values are latest report-period totals, not lifetime or full-cycle totals unless separately reconciled.
+
+SCJC results should be read as source-scoped archive search results. The safe wording is:
+
+`No matching public sanction found in checked SCJC public sanctions pages`
+
+not:
+
+`No sanctions`
+
+## Column dictionary
+
+| Column name | Meaning |
+|---|---|
+| `candidate_name` | Name of the target campaign candidate. |
+| `party` | Candidate party label. |
+| `court_name` | Court seat the candidate is running for. |
+| `court_type` | Normalized court category, such as `Family District Court`, `District Civil Court`, or `Criminal District Court`. |
+| `incumbent_status` | Candidate’s relationship to the current court seat holder. Suggested values: `Incumbent`, `Challenger`, `Open seat`, `Unknown`, or `Needs verification`. |
+| `state_bar_profile_url` | URL for the candidate’s State Bar of Texas profile, if a profile was found and identity was verified. |
+| `bar_number` | State Bar of Texas bar card number, where verified. |
+| `bar_status` | State Bar eligibility or license status, such as `Eligible to Practice in Texas`. |
+| `licensed_since` | Texas license date listed on the State Bar profile. |
+| `public_discipline_flag` | Whether the State Bar profile lists public disciplinary history. Suggested values: `Yes`, `No`, `Unknown`, `Not checked`, or `Needs verification`. |
+| `campaign_finance_source` | Source used for campaign finance lookup, such as `Texas Ethics Commission — JCOH campaign finance reports`. |
+| `campaign_finance_url` | URL or source description for the campaign finance report or filer search used. |
+| `filer_id` | TEC filer ID where a clear campaign finance filer match was found. This should be stored as text to preserve leading zeros. |
+| `total_contributions` | Total political contributions from the selected TEC report period. This should not be treated as a lifetime or full-cycle total unless all reports are reconciled. |
+| `total_expenditures` | Total expenditures from the selected TEC report period. This should not be treated as a lifetime or full-cycle total unless all reports are reconciled. |
+| `oca_case_category` | OCA case category used for the candidate’s court seat, such as `family`, `civil`, or `felony`. |
+| `active_pending_total` | Court-level active pending case total for the selected OCA case category. |
+| `long_pending_count` | Court-level count of active pending cases older than the selected long-pending threshold. |
+| `long_pending_threshold` | Threshold used to classify active pending cases as long-pending, such as `over_18_months` or `over_365_days`. |
+| `long_pending_pct` | Share of active pending cases that are long-pending. Calculated as `long_pending_count / active_pending_total` where available. |
+| `scjc_checked` | Whether the SCJC public sanctions archive was checked. Suggested values: `Yes`, `Partial`, `No`, or `Not checked`. |
+| `scjc_result` | Result of the SCJC public sanctions archive check. Use careful wording that describes the checked source scope. |
+| `overall_confidence` | Overall confidence rating for the dossier row, based on source completeness and verification. Suggested values: `High`, `Medium`, `Low`, or `Needs review`. |
+| `missing_fields` | List of fields that remain missing, unverified, or not checked for that candidate. |
+| `notes` | Free-text notes explaining source choices, limitations, report-period caveats, manual search results, or interpretation warnings. |
+
+## Best use
+
+Use this file as the first campaign-specific gold-output prototype. It shows what a polished candidate dossier row could look like once multiple public sources are connected into one structured record.
+
+This file should be used for:
+
+- testing candidate dossier structure,
+- identifying source verification needs,
+- generating dashboard-ready candidate profile views,
+- and demonstrating how Spartan Judicial could support the three priority campaigns.
+
+It should not be used to rank candidates, assign blame, or make final public claims without additional review.
 ---
 
 # **Interpretation warning**

@@ -2,6 +2,8 @@
 
 ## **Project purpose**
 
+
+
 Spartan Judicial is a civic data engineering prototype testing whether fragmented public records can be collected, normalized, and connected into candidate-level judicial accountability dossiers. The goal of this phase was not to build a final public-facing product or complete every candidate record. The goal was to test whether the core data model is feasible, which sources can scale, and which fields require manual verification before broader expansion.
 
 The current prototype focuses on Harris County judicial candidates in the 2026 general election and combines candidate election data, court-level backlog metrics, professional profile information, campaign finance records, and public sanctions checks.
