@@ -55,3 +55,7 @@ Phase 0: Scope, onboarding, and repo setup.
 - Streamlit dashboard
 - Architecture documentation
 - Final evaluation report
+
+
+
+![alt text](image.png)
