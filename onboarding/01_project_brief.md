@@ -41,13 +41,7 @@ The first version will include:
 - Data readiness/risk-signal evaluation
 - A simple dashboard or profile view
 
-## What This Is Not
 
-This is not just a dashboard.
-
-The dashboard is only the visible layer. The main deliverable is the repeatable data system underneath it.
-
-This is also not a system for making unsupported claims about candidates. The platform must preserve source links, caveats, and confidence levels.
 
 ## Final Deliverables
 
