@@ -110,3 +110,58 @@ Fourth, expand the mini-batch cautiously. A good next batch would include candid
 
 The main conclusion is that Spartan Judicial is feasible as a civic data engineering project, but the responsible path is source-by-source scaling rather than candidate-by-candidate manual completion. The strongest current deliverables are the structured candidate roster, the candidate-to-court OCA metrics dataset, the mini-batch dossier prototype, and the documented scaling assessment.
 
+
+
+## Texas Ethics Commission Campaign Finance Reports
+
+**Date checked:** 2026-07-11  
+**Checked by:** Meron  
+**Source URL:** https://www.ethics.state.tx.us/search/cf/
+
+### Purpose
+Determine whether campaign finance records for Rabeea Sultan Collier / the 113th District Court are available through TEC, and whether donor-level contribution data can be searched or downloaded.
+
+### What I tried
+- Opened TEC Search Campaign Finance Reports page.
+- Used Simple Searches Returning Full Report(s) and/or Stats.
+- Searched:
+  - Collier
+  - Rabeea
+  - Rabeea Sultan Collier
+  - Sultan Collier
+- Checked whether full reports were accessible.
+- Used Advanced Searches Returning Individual Transaction(s).
+- Exported/downloaded a transaction-level contribution file from TEC advanced search results.
+
+### What I found
+TEC advanced search returned transaction-level campaign contribution records. The downloaded file includes individual contribution rows with report number, report type, contributor name, amount, date, employer, occupation, city, state, and ZIP code.
+
+This means the campaign finance side appears accessible enough for a preliminary structured analysis, pending confirmation that the exported records correspond to the correct filer/candidate/report scope.
+
+### Fields visible
+- `REPNO`
+- `Report Type`
+- `Contributor Name`
+- `Amount`
+- `Description`
+- `Date`
+- `Employer`
+- `Occupation`
+- `City`
+- `State`
+- `Zip`
+
+### Access status
+Accessible through TEC advanced search.
+
+### Export/bulk access status
+Partial/Promising. Transaction-level data appears downloadable from advanced search results, but the exact export limits, full date coverage, and filer scope still need to be confirmed.
+
+### Blockers
+- Need to confirm the file is scoped to the correct filer/candidate or report search.
+- Need to identify the relevant Collier filer ID/report set.
+- Need a stakeholder-approved AZA alias/entity list before matching contributor names.
+- Need to verify whether employer/occupation fields are consistently populated enough to identify AZA-affiliated individuals.
+
+### Next action
+Use a script to parse the exported TEC transaction file, summarize the number of records, date range, report types, total contribution amount, and search for preliminary AZA-related terms. Do not treat any matches as final until the AZA alias list is defined and manually reviewed.
